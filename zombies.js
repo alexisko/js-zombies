@@ -218,6 +218,9 @@ function Food(name, energy) {
  * @name equip
  * @param {Weapon} itemToEquip  The weapon item to equip.
  */
+ Player.prototype.equip = function(itemToEquip) {
+
+ };
 
 
 /**
@@ -238,6 +241,9 @@ function Food(name, energy) {
  * @name eat
  * @param {Food} itemToEat  The food item to eat.
  */
+ Player.prototype.eat = function(itemToEat) {
+
+ };
 
 
 /**
@@ -252,6 +258,9 @@ function Food(name, energy) {
  * @name useItem
  * @param {Item/Weapon/Food} item   The item to use.
  */
+ Player.prototype.useItem = function(item) {
+
+ };
 
 
 /**
@@ -267,6 +276,9 @@ function Food(name, energy) {
  * @name equippedWith
  * @return {string/boolean}   Weapon name or false if nothing is equipped.
  */
+ Player.prototype.equippedWith = function() {
+
+ };
 
 
 /**
