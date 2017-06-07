@@ -102,12 +102,19 @@ function Food(name, energy) {
   this.health = health;
   this.strength = strength;
   this.speed = speed;
-  this._pack = "";
+  this._pack = [];
   this._maxHealth = health;
   this.isAlive = true;
   this.equipped = false;
  }
 
+ Player.prototype.getPack = function() {
+  return this._pack;
+ };
+
+ Player.prototype.getMaxHealth = function() {
+  return this._maxHealth;
+ };
 
 /**
  * Player Class Method => checkPack()
@@ -120,9 +127,10 @@ function Food(name, energy) {
  *
  * @name checkPack
  */
- function checkPack() {
+ Player.prototype.checkPack = function() {
+  return console.log(Player.prototype.getPack());
+ };
 
- }
 
 
 /**
@@ -142,6 +150,7 @@ function Food(name, energy) {
  * @param {Item/Weapon/Food} item   The item to take.
  * @return {boolean} true/false     Whether player was able to store item in pack.
  */
+
 
 
 /**
