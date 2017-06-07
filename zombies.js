@@ -256,6 +256,13 @@ function Food(name, energy) {
  * @property {number} speed
  * @property {boolean} isAlive      Default value should be `true`.
  */
+ function Zombie(health, strength, speed) {
+  this.health = health;
+  this.strength = strength;
+  this.speed = speed;
+  this._maxHealth = health;
+  this.isAlive = true;
+ }
 
 
 /**
@@ -272,12 +279,21 @@ function Food(name, energy) {
  * @param {number} strength         The zombie's strength.
  * @param {number} speed            The zombie's speed.
  */
+ function FastZombie(health, strength, speed) {
+  this.health = health;
+  this.strength = strength;
+  this.speed = speed;
+  Zombie.call(this, health, strength, speed);
+ }
 
 
 /**
  * FastZombie Extends Zombie Class
  * -----------------------------
  */
+ FastZombie.prototype = Object.create(Zombie.prototype, {
+   constructor: FastZombie
+ });
 
 
 
@@ -295,12 +311,21 @@ function Food(name, energy) {
  * @param {number} strength         The zombie's strength.
  * @param {number} speed            The zombie's speed.
  */
+ function StrongZombie(health, strength, speed) {
+  this.health = health;
+  this.strength = strength;
+  this.speed = speed;
+  Zombie.call(this, health, strength, speed);
+ }
 
 
 /**
  * StrongZombie Extends Zombie Class
  * -----------------------------
  */
+ StrongZombie.prototype = Object.create(Zombie.prototype, {
+   constructor: StrongZombie
+ });
 
 
 
@@ -318,13 +343,22 @@ function Food(name, energy) {
  * @param {number} strength         The zombie's strength.
  * @param {number} speed            The zombie's speed.
  */
+ function RangedZombie(health, strength, speed) {
+  this.health = health;
+  this.strength = strength;
+  this.speed = speed;
+  Zombie.call(this, health, strength, speed);
+ }
+
 
 
 /**
  * RangedZombie Extends Zombie Class
  * -----------------------------
  */
-
+RangedZombie.prototype = Object.create(Zombie.prototype, {
+   constructor: RangedZombie
+ });
 
 
 /**
@@ -341,13 +375,21 @@ function Food(name, energy) {
  * @param {number} strength         The zombie's strength.
  * @param {number} speed            The zombie's speed.
  */
+ function ExplodingZombie(health, strength, speed) {
+  this.health = health;
+  this.strength = strength;
+  this.speed = speed;
+  Zombie.call(this, health, strength, speed);
+ }
 
 
 /**
  * ExplodingZombie Extends Zombie Class
  * -----------------------------
  */
-
+ExplodingZombie.prototype = Object.create(Zombie.prototype, {
+   constructor: ExplodingZombie
+ });
 
 
 
