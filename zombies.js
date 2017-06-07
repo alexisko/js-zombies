@@ -150,6 +150,16 @@ function Food(name, energy) {
  * @param {Item/Weapon/Food} item   The item to take.
  * @return {boolean} true/false     Whether player was able to store item in pack.
  */
+ Player.prototype.takeItem = function(item) {
+
+  if(this._pack.length < 3) {
+    this._pack.push(item);
+    console.log(this.name + " " + item);
+    return true;
+  }
+  console.log("Sorry, your pack is full.  " + item + "was not stored.");
+  return false;
+ };
 
 
 
@@ -178,7 +188,16 @@ function Food(name, energy) {
  * @param {Item/Weapon/Food} item   The item to discard.
  * @return {boolean} true/false     Whether player was able to remove item from pack.
  */
-
+ Player.prototype.discardItem = function(item) {
+  var location = this._pack.indexOf(item);
+  if(location !== -1) {
+    this._pack.splice(location, 1);
+    console.log(this.name + ": " + item + "was discarded.");
+    return true;
+  }
+  console.log("Nothing was discarded because '" + item + "' was not found.");
+  return false;
+ };
 
 /**
  * Player Class Method => equip(itemToEquip)
