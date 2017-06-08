@@ -196,7 +196,39 @@
       return false;
     }
 
-
+    /**
+     * Player Class Method => equip(itemToEquip)
+     * -----------------------------
+     * Player equips a weapon item.
+     *
+     * Player can only equip Weapon instances.
+     * Player can only equip weapon items from their pack.
+     *
+     * If the player already has a weapon equipped (the equipped property
+     *   is set to an Item), find the itemToEquip in the pack and replace
+     *   it with the currently equipped item.  Then set the equipped property
+     *   to the itemToEquip.
+     * However, if the player doesn't already have a weapon equipped, simply
+     *   equip that item and remove it from the pack.
+     * You should be able to invoke this function on a Player instance.
+     *
+     * @name equip
+     * @param {Weapon} itemToEquip  The weapon item to equip.
+     */
+     equip(itemToEquip) {
+      var location = this._pack.indexOf(itemToEquip);
+        if(itemToEquip instanceof Weapon) {
+          if(location !== -1) {
+            if(this.equipped !== false) {
+              this._pack[location] = this.equipped;
+              this.equipped = itemToEquip;
+            } else {
+              this.equipped = itemToEquip;
+              this._pack.splice(location, 1);
+            }
+          }
+        }
+     }
  }
 
 
@@ -209,25 +241,7 @@
 
 
 
-/**
- * Player Class Method => equip(itemToEquip)
- * -----------------------------
- * Player equips a weapon item.
- *
- * Player can only equip Weapon instances.
- * Player can only equip weapon items from their pack.
- *
- * If the player already has a weapon equipped (the equipped property
- *   is set to an Item), find the itemToEquip in the pack and replace
- *   it with the currently equipped item.  Then set the equipped property
- *   to the itemToEquip.
- * However, if the player doesn't already have a weapon equipped, simply
- *   equip that item and remove it from the pack.
- * You should be able to invoke this function on a Player instance.
- *
- * @name equip
- * @param {Weapon} itemToEquip  The weapon item to equip.
- */
+
 
 
 /**
