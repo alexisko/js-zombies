@@ -1,3 +1,4 @@
+/*jshint esversion: 6 */
 /**
  * Class => Item(name)
  * -----------------------------
@@ -35,6 +36,13 @@
  * Weapon Extends Item Class
  * -----------------------------
  */
+ class Weapon extends Item {
+  constructor(name, damage) {
+    super(name);
+    this.name = name;
+    this.damage = damage;
+  }
+ }
 
 
 
