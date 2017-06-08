@@ -229,6 +229,38 @@
           }
         }
      }
+
+    /**
+     * Player Class Method => eat(itemToEat)
+     * -----------------------------
+     * Player eats a food item, restoring their health.
+     *
+     * Player can only eat Food instances.
+     * Player can only eat food items from their pack.
+     *
+     * Remove itemToEat from the pack.
+     * Increase the player's health by the food's energy amount, but do not
+     *   exceed the player's max health.  If exceeded, simply set player's health
+     *   to max health instead.
+     * To access the player's max health, be sure to use Player's getMaxHealth method.
+     * You should be able to invoke this function on a Player instance.
+     *
+     * @name eat
+     * @param {Food} itemToEat  The food item to eat.
+     */
+     eat(itemToEat) {
+      var location = this._pack.indexOf(itemToEat);
+        if(itemToEat instanceof Food) {
+          if(location !== -1) {
+            this._pack.splice(location, 1);
+            if((this.health + itemToEat.energy) >= this.getMaxHealth()) {
+              this.health = this.getMaxHealth();
+            } else {
+              this.health += itemToEat.energy;
+            }
+          }
+        }
+     }
  }
 
 
@@ -244,24 +276,7 @@
 
 
 
-/**
- * Player Class Method => eat(itemToEat)
- * -----------------------------
- * Player eats a food item, restoring their health.
- *
- * Player can only eat Food instances.
- * Player can only eat food items from their pack.
- *
- * Remove itemToEat from the pack.
- * Increase the player's health by the food's energy amount, but do not
- *   exceed the player's max health.  If exceeded, simply set player's health
- *   to max health instead.
- * To access the player's max health, be sure to use Player's getMaxHealth method.
- * You should be able to invoke this function on a Player instance.
- *
- * @name eat
- * @param {Food} itemToEat  The food item to eat.
- */
+
 
 
 /**
