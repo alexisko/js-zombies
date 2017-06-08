@@ -117,6 +117,10 @@
   getMaxHealth() {
     return this._maxHealth;
   }
+
+  checkPack() {
+    return console.log(this.getPack);
+  }
  }
 
 
