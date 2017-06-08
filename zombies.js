@@ -261,6 +261,26 @@
           }
         }
      }
+
+    /**
+     * Player Class Method => useItem(item)
+     * -----------------------------
+     * Player uses an item from the pack.
+     *
+     * If the item is a weapon, the player should equip the item.
+     * If the item is food, the player should eat the item.
+     * You should be able to invoke this function on a Player instance.
+     *
+     * @name useItem
+     * @param {Item/Weapon/Food} item   The item to use.
+     */
+     useItem(item) {
+      if(item instanceof Weapon) { //item is a weapon
+          this.equip(item);
+        } else if(item instanceof Food) { //item is food
+          this.eat(item);
+        }
+     }
  }
 
 
@@ -279,18 +299,7 @@
 
 
 
-/**
- * Player Class Method => useItem(item)
- * -----------------------------
- * Player uses an item from the pack.
- *
- * If the item is a weapon, the player should equip the item.
- * If the item is food, the player should eat the item.
- * You should be able to invoke this function on a Player instance.
- *
- * @name useItem
- * @param {Item/Weapon/Food} item   The item to use.
- */
+
 
 
 /**
