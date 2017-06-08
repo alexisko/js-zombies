@@ -67,6 +67,13 @@
  * Food Extends Item Class
  * -----------------------------
  */
+ class Food extends Item {
+  constructor(name, energy) {
+    super(name);
+    this.name = name;
+    this.energy = energy;
+  }
+ }
 
 
 
