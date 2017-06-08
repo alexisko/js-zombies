@@ -281,40 +281,29 @@
           this.eat(item);
         }
      }
+
+     /**
+      * Player Class Method => equippedWith()
+      * -----------------------------
+      * Player checks their equipment.
+      *
+      * Prints the player's name and equipped weapon's name.
+      * If nothing is equipped, prints a message saying so.
+      * Also returns the equipped weapon's name or false if nothing is equipped.
+      * You should be able to invoke this function on a Player instance.
+      *
+      * @name equippedWith
+      * @return {string/boolean}   Weapon name or false if nothing is equipped.
+      */
+    equippedWith() {
+      if(this.equipped) {
+          console.log(this.name + "'s equipped weapon is: " + this.equipped);
+          return this.equipped.name;
+        }
+        console.log("Nothing is equipped on " + this.name + ".");
+        return false;
+    }
  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/**
- * Player Class Method => equippedWith()
- * -----------------------------
- * Player checks their equipment.
- *
- * Prints the player's name and equipped weapon's name.
- * If nothing is equipped, prints a message saying so.
- * Also returns the equipped weapon's name or false if nothing is equipped.
- * You should be able to invoke this function on a Player instance.
- *
- * @name equippedWith
- * @return {string/boolean}   Weapon name or false if nothing is equipped.
- */
 
 
 /**
