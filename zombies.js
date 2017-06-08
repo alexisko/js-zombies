@@ -151,7 +151,6 @@ function Food(name, energy) {
  * @return {boolean} true/false     Whether player was able to store item in pack.
  */
  Player.prototype.takeItem = function(item) {
-
   if(this._pack.length < 3) {
     this._pack.push(item);
     console.log(this.name + " " + item);
@@ -219,7 +218,18 @@ function Food(name, energy) {
  * @param {Weapon} itemToEquip  The weapon item to equip.
  */
  Player.prototype.equip = function(itemToEquip) {
-
+  var location = this._pack.indexOf(itemToEquip);
+  if(itemToEquip instanceof Weapon) {
+    if(location !== -1) {
+      if(this.equipped !== false) {
+        this._pack[location] = this.equipped;
+        this.equipped = itemToEquip;
+      } else {
+        this.equipped = itemToEquip;
+        this._pack.splice(location, 1);
+      }
+    }
+  }
  };
 
 
@@ -242,7 +252,17 @@ function Food(name, energy) {
  * @param {Food} itemToEat  The food item to eat.
  */
  Player.prototype.eat = function(itemToEat) {
-
+  var location = this._pack.indexOf(itemToEat);
+  if(itemToEat instanceof Food) {
+    if(location !== -1) {
+      this._pack.splice(location, 1);
+      if((this.health + itemToEat.energy) >= this.getMaxHealth()) {
+        this.health = this.getMaxHealth();
+      } else {
+        this.health += itemToEat.energy;
+      }
+    }
+  }
  };
 
 
@@ -259,7 +279,11 @@ function Food(name, energy) {
  * @param {Item/Weapon/Food} item   The item to use.
  */
  Player.prototype.useItem = function(item) {
-
+  if(item instanceof Weapon) { //item is a weapon
+    this.equip(item);
+  } else if(item instanceof Food) { //item is food
+    this.eat(item);
+  }
  };
 
 
@@ -277,7 +301,12 @@ function Food(name, energy) {
  * @return {string/boolean}   Weapon name or false if nothing is equipped.
  */
  Player.prototype.equippedWith = function() {
-
+  if(this.equipped) {
+    console.log(this.name + "'s equipped weapon is: " + this.equipped);
+    return this.equipped.name;
+  }
+  console.log("Nothing is equipped on " + this.name + ".");
+  return false;
  };
 
 
