@@ -443,6 +443,14 @@
  * ExplodingZombie Extends Zombie Class
  * -----------------------------
  */
+ class ExplodingZombie extends Zombie {
+  constructor(health, strength, speed) {
+    super(health, strength, speed);
+    this.health = health;
+    this.strength = strength;
+    this.speed = speed;
+  }
+ }
 
 
 
